@@ -1,0 +1,62 @@
+
+      <mat-card  class="main-card">
+        <mat-toolbar class="auth-bar">Creation de Compentences</mat-toolbar><br><br>
+        <form fxLayoutAlign="stretch"  [formGroup]="competenceForm" fxLayout="column" class="login-form" (ngSubmit)="AddCompetences()">
+          <div formGroupName='grpcompetence'>
+          <mat-form-field class="text-card">    
+            <mat-label>Selectionner un  groupe de competences</mat-label>
+            
+              <select  matNativeControl formControlName='grpcompetences' #t (change)='selectedValue(t.value)'>
+                  <option value=""></option>
+                <option  id="optiongrp"  *ngFor="let order of dataSource; let i = index" value={{order.id}}>
+                  {{order.libelle}}
+                </option>
+            </select>
+  </mat-form-field>  
+</div>
+            <mat-form-field class="text-card">
+                <mat-label>Libelle</mat-label>
+                <input matInput placeholder="Développer le back-end" formControlName='libelle' >
+              </mat-form-field><br><br>
+              <button mat-raised-button type="button" id="niveau_btn1" (click)="Niveau1()" [ngClass]="{'btn btn-success':n1==true,'btn btn-warning':n1==false}">Niveau1</button>
+              <button mat-raised-button type="button" id="niveau_btn" (click)="Niveau2()"  [ngClass]="{'btn btn-success':n2==true,'btn btn-warning':n2==false}">Niveau2</button>
+              <button mat-raised-button type="button" id="niveau_btn" (click)="Niveau3()"  [ngClass]="{'btn btn-success':n3==true,'btn btn-warning':n3==false}">Niveau3</button>
+              <div>
+                <div class="row ml-5"  [hidden]=niveau1 >
+                  <mat-card class="niveau_text">
+                    <mat-toolbar class="auth-bar">Groupe d'actions à réaliser</mat-toolbar>
+                    <input matInput placeholder="Développer le back-end" formControlName='grpaction0' >
+                                    </mat-card>
+                  <mat-card class="niveau_text">
+                    <mat-toolbar class="auth-bar">Critères d'évaluation</mat-toolbar>
+                  <textarea formControlName='niveauevaluation0' matInput placeholder="Donner le descriptif" rows="3"  ></textarea>
+                  </mat-card>
+                  </div>
+                  <div class="row ml-5" [hidden]=niveau2>
+                    <mat-card class="niveau_text">
+                      <mat-toolbar class="auth-bar">Groupe d'actions à réaliser</mat-toolbar>
+                      <div class="mat-body-1"><textarea formControlName='grpaction1' matInput placeholder="Donner le descriptif" rows="3"  ></textarea></div>
+                      
+                    </mat-card>
+                    <mat-card class="niveau_text">
+                      <mat-toolbar class="auth-bar">Critères d'évaluation</mat-toolbar>
+                      <div class="mat-body-1"> <textarea formControlName='niveauevaluation1' matInput placeholder="Donner le descriptif" rows="3" ></textarea></div>
+                      
+                    </mat-card>
+                    </div>
+                    <div class="row ml-5" [hidden]=niveau3>
+                      <mat-card class="niveau_text">
+                        <mat-toolbar class="auth-bar">Groupe d'actions à réaliser</mat-toolbar>
+                        <div class="mat-body-1"><textarea formControlName='grpaction2' matInput placeholder="Donner le descriptif" rows="3"></textarea></div>
+                      </mat-card>
+                      <mat-card class="niveau_text">
+                        <mat-toolbar class="auth-bar">Critères d'évaluation</mat-toolbar>
+                        <div class="mat-body-1"><textarea formControlName='niveauevaluation2' matInput placeholder="Donner le descriptif" rows="3" ></textarea></div>
+                      </mat-card>
+                      </div><br>
+              </div>
+       <button mat-raised-button type="submit" class="submit-btn">Soumettre</button>
+        </form>
+      </mat-card>
+    
+    

@@ -1,0 +1,41 @@
+
+<mat-card class='main-card'>
+
+  <button mat-raised-button type="button" id="niveau_btn1" (click)="Niveau1()" [ngClass]="{'btn btn-success':n1==true,'btn btn-warning':n1==false}">Niveau1</button>
+  <button mat-raised-button type="button" id="niveau_btn" (click)="Niveau2()"  [ngClass]="{'btn btn-success':n2==true,'btn btn-warning':n2==false}">Niveau2</button>
+  <button mat-raised-button type="button" id="niveau_btn" (click)="Niveau3()"  [ngClass]="{'btn btn-success':n3==true,'btn btn-warning':n3==false}">Niveau3</button>
+<div  class="niveau" *ngIf="niveau1">
+  <div class='text-card'>
+    <mat-card-title>Groupe d'actions à réaliser</mat-card-title>
+      <span>{{niveauEvaluation1.grpactions}}</span>
+  </div>
+  <div class='text-card'>
+    <mat-card-title>Critères d'évaluation</mat-card-title>
+    <span>{{niveauEvaluation1.niveauevaluation}}</span> 
+  </div>
+  </div>
+ <div class="niveau" *ngIf="niveau2">
+            <div class='text-card'>
+              <mat-card-title>Groupe d'actions à réaliser</mat-card-title>
+                 <span> {{niveauEvaluation2.grpactions}} </span>
+           </div>
+         <div class='text-card'>
+          <mat-card-title>Critères d'évaluation</mat-card-title>
+               <span>
+        {{niveauEvaluation2.niveauevaluation}}
+      </span>
+   
+   </div>
+ </div>
+   
+  <div  class="niveau" *ngIf="niveau3">
+     <div class='text-card'>
+           <mat-card-title> Groupe d'actions à réaliser</mat-card-title>
+           <span>{{niveauEvaluation3.grpactions}}</span>
+     </div>
+     <div class='text-card'>
+           <mat-card-title>Critères d'évaluation</mat-card-title>
+           <span>{{niveauEvaluation3.niveauevaluation}}</span>
+     </div>
+   </div>
+</mat-card>

@@ -1,0 +1,56 @@
+
+      <div class='main-div'> 
+        <mat-card fxFlex="25" class="main-card">
+          <mat-toolbar class="auth-bar">Modifier un utilisateur</mat-toolbar>
+          <form fxLayoutAlign="stretch" fxLayout="column" class="add-user-form"  [formGroup]="userForm" (ngSubmit)="AddUser()" >
+           
+              <img src="data:image/jpeg;base64,{{ users.photo}}"  alt="aucune image" name='photo'/> 
+          <mat-form-field class="text-card">
+            <mat-label>Nom</mat-label>
+        <input matInput [(value)]='users.nom' formControlName="nom">
+    </mat-form-field>
+            <mat-form-field class="text-card">
+              <mat-label>Prenom</mat-label>
+          <input matInput value={{users.prenom}} formControlName="prenom" >
+        </mat-form-field>
+       
+              <mat-label class="text-card" style="color:black">Sex</mat-label>
+
+              
+              <mat-radio-group aria-label="Select an option" formControlName="sex" >
+                <mat-radio-button [checked]="hChecked" value={{Sex[0].libelle}} >{{ Sex[0].libelle}}</mat-radio-button>      
+                <mat-radio-button [checked]="fChecked" value={{Sex[1].libelle}} >{{ Sex[1].libelle}}</mat-radio-button>      
+               </mat-radio-group>
+              
+     
+        <mat-form-field class="text-card">
+             <mat-label>Adresse</mat-label>
+             <input matInput [(value)]=users.adresse formControlName="adresse">
+      </mat-form-field>
+        <mat-form-field class="text-card">
+               <mat-label>Email</mat-label>
+               <input matInput value={{users.email}} formControlName="email" >
+        </mat-form-field>
+        <mat-form-field class="text-card">
+           <mat-label>Telephone</mat-label>
+           <input matInput value={{users.telephone}}  formControlName="telephone"  >
+       </mat-form-field>
+       <mat-form-field class="text-card">
+        <select matNativeControl formControlName="profil"  >
+          <option value={{administrateur}} (click)="showSalaire()" [selected]='true'>Administrateur</option>
+          <option value={{cm}}             (click)="showSalaire()">Cm</option>
+          <option value={{formateur}}      (click)="showSalaire()">Formateur</option>
+        </select>
+      </mat-form-field>
+   
+      <mat-form-field class="file-choose">
+        <mat-label>Avatar</mat-label>
+          <ngx-mat-file-input placeholder="selectionner un avatar" formControlName="photo"  (change)="fileChange($event)"  ></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button type="submit" class="btn">Modifier</button>
+          </form>
+        </mat-card>
+      </div>
+ 
+      

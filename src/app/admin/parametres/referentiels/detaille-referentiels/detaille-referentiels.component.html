@@ -1,0 +1,61 @@
+
+    <div class="pt-5">
+        <mat-card fxFlex="25" class="main-card">
+          <mat-toolbar class="auth-bar">Creation de referentiels</mat-toolbar>
+          <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="referentielForm">
+              <mat-form-field class="text-card">
+                  <mat-label>Libelle</mat-label>
+                    <input matInput [(value)]= 'oneReferentiel.libelle' formControlName='libelle'>
+                </mat-form-field>
+                <mat-form-field class="text-card">
+                  <mat-label>Presentation</mat-label>
+                  <input matInput [(value)]= 'oneReferentiel.Presentation' formControlName='presentation'>
+                </mat-form-field>
+                <mat-form-field class="file-choose">
+                  <mat-label>Programme</mat-label>
+                  </mat-form-field>
+  
+                  <mat-accordion class="example-card">
+                    <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header class="auth-bar">
+                        Choisir les groupes de competences recherchés dans referentiel
+                      </mat-expansion-panel-header>
+                      <mat-chip-list #chipList formArrayName="referentielGrpCompetences">
+                        <mat-chip *ngFor="let competence of oneReferentiel.referentielGrpCompetences">
+                          {{competence.libelle}}
+                        </mat-chip>
+                      </mat-chip-list>
+                    </mat-expansion-panel>
+                  </mat-accordion>  <br>
+   
+                  <mat-accordion class="example-card">
+                    <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header class="auth-bar">
+                        Criteres d'admission
+                      </mat-expansion-panel-header>
+                      <mat-chip-list #chipList formArrayName="referentielGrpCompetences">
+                        <mat-chip *ngFor="let admission of oneReferentiel.critereadmission">
+                          {{admission.libelle}}
+                        </mat-chip>
+                      </mat-chip-list>
+                    </mat-expansion-panel>
+                  </mat-accordion>  <br>
+  
+                 <mat-accordion class="example-card">
+                    <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header class="auth-bar">
+                        Criteres d'evaluation
+                      </mat-expansion-panel-header>
+                      <mat-chip-list #chipList formArrayName="criterevaluation">
+                        <mat-chip   *ngFor="let evaluation of oneReferentiel.criterevaluation">
+                          {{evaluation.libelle}}
+                        </mat-chip>
+                      </mat-chip-list>
+                    </mat-expansion-panel>
+                  </mat-accordion>  <br><br>
+
+          </form>
+        </mat-card>
+      </div>
+    
+      

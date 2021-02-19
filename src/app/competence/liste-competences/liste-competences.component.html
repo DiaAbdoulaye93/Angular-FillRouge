@@ -1,0 +1,30 @@
+
+    <mat-card fxFlex="25" class="main-card">
+      <mat-toolbar class="auth-bar">Liste des competences</mat-toolbar>
+<div>
+<form [formGroup]="form">
+  <mat-form-field class="text-card">
+  <mat-label>Selectionner un  groupe de competences</mat-label>
+  <select  matNativeControl   #selectedoption (click)='selectedValue(selectedoption.value)'>
+    <option  id="optiongrp"  *ngFor="let order of dataSource; let i = index" value={{order.id}}>
+      {{order.libelle}}
+    </option>
+</select>
+  </mat-form-field>  
+</form>
+<div *ngIf='defaulcontent'>
+<div *ngFor="let OneCompetence of listecompetence">
+  <a   [routerLink]="['/admin/parametres/competences',OneCompetence.id,'detailles']"><span>{{OneCompetence.libelle}}</span></a>
+  <a class="float-right" [routerLink]="['/admin/parametres/competences',OneCompetence.id,'update']" ><mat-icon>mode</mat-icon></a>
+  <hr>
+  </div>
+</div>
+<div *ngFor="let OneCompetence of CompetenceOfGrp">
+<a   [routerLink]="['/admin/parametres/competences',OneCompetence.id,'detailles']"><span>{{OneCompetence.libelle}}</span></a>
+<a class="float-right" [routerLink]="['/admin/parametres/competences',OneCompetence.id,'update']" ><mat-icon>mode</mat-icon></a>
+<hr>
+</div>
+<br>
+</div>
+</mat-card>
+

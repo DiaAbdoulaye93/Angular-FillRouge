@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="pl-5">
+      <mat-card fxFlex="25" class="main-card">
+        <mat-toolbar class="auth-bar">Ajouter un utilisateur</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="add-user-form"  [formGroup]="userForm" (ngSubmit)="AddUser()" >
+            <mat-form-field class="text-card">
+                <mat-label>Nom</mat-label>
+            <input matInput placeholder="Dia" formControlName="nom">
+          </mat-form-field>
+          <mat-form-field class="text-card">
+            <mat-label>Prenom</mat-label>
+        <input matInput placeholder="Abdoulaye" formControlName="prenom" >
+      </mat-form-field>
+     
+            <mat-label class="text-card" style="color:black">Sex</mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="sex">
+              <mat-radio-button value="H">H</mat-radio-button>
+              <mat-radio-button value="F">F</mat-radio-button>
+            </mat-radio-group>
+            
+   
+      <mat-form-field class="text-card">
+           <mat-label>Adresse</mat-label>
+           <input matInput placeholder="Villa 7082 Dakar-Plateau" formControlName="adresse">
+    </mat-form-field>
+      <mat-form-field class="text-card">
+             <mat-label>Email</mat-label>
+             <input matInput placeholder="diaabdoulayedjibril@gmail.com" formControlName="email" >
+      </mat-form-field>
+      <mat-form-field class="text-card">
+        <mat-label>Mot de pass de l'utisateur</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"  >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="text-card">
+         <mat-label>Telephone</mat-label>
+         <input matInput placeholder="771880999" formControlName="telephone"  >
+     </mat-form-field>
+     <mat-form-field class="text-card">
+      <mat-label>Profil</mat-label>
+      <select matNativeControl formControlName="profil" >
+        <option></option>
+        <option value={{administrateur}} (click)="showSalaire()">Administrateur</option>
+        <option value={{cm}}             (click)="showSalaire()">Cm</option>
+        <option value={{formateur}}      (click)="showSalaire()">Formateur</option>
+      </select>
+    </mat-form-field>
+ 
+    <mat-form-field class="file-choose">
+      <mat-label>Avatar</mat-label>
+        <ngx-mat-file-input placeholder="selectionner un avatar" formControlName="photo"  (change)="fileChange($event)"  ></ngx-mat-file-input>
+        <mat-icon matSuffix>folder</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button type="submit" class="btn">Ajouter</button>
+        </form>
+      </mat-card>
+    </div>
+    </div>
+    

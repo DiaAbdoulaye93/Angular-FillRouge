@@ -1,0 +1,28 @@
+
+   <div class="card mt-3">
+    <h1>Détails de l'utilisateur</h1>
+    <img src="data:image/jpeg;base64,{{ users.photo}}"  alt="aucune image"/>
+     <div class="card-body">
+       <hr/>
+       <label for="">Nom</label>
+       <span class="ml-4">{{users.nom}}</span>
+       <hr/>
+       <label for="">Prenom</label>
+       <span class="ml-4">{{users.prenom}}</span>
+       <hr/>
+       <label for="">Sex</label>
+       <span class="ml-4">{{users.Sex}}</span>
+       <hr/>
+       <label for="">Email</label>
+       <span class="ml-4">{{users.email}}</span>
+       <hr>
+       <label for="">Telephone</label>
+       <span class="ml-4">{{users.telephone}}</span>
+       <hr>
+       <label for="">Adresse</label>
+       <span class="ml-4">{{users.adresse}}</span>
+       <hr>
+       <label for="">Profile</label>
+       <span class="ml-4">{{users.profil.libelle}}</span>
+     </div>
+   </div>

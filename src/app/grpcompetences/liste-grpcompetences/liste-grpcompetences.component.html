@@ -1,0 +1,62 @@
+
+      <mat-card fxFlex="25" class="main-card">
+        <mat-toolbar class="auth-bar">Liste des groupes de competences </mat-toolbar>
+     
+        <mat-accordion class="example-card"  *ngFor="let grpcompetence of dataSource">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{grpcompetence.libelle}}
+              </mat-panel-title>
+              <a   [routerLink]="['/admin/parametres/groupecompetences',grpcompetence.id]" class="show" ><mat-icon>visibility</mat-icon></a>
+              <a  [routerLink]="['/admin/parametres/groupecompetences',grpcompetence.id,'update']" class="update" ><mat-icon>mode</mat-icon></a>
+              <mat-icon style="color:white" >delete</mat-icon>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+          <mat-panel-description>
+            Description
+            </mat-panel-description>
+          <mat-panel-description>
+            <p>{{grpcompetence.description}}</p>
+          </mat-panel-description>
+          
+          <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              Competences Associés
+            </mat-expansion-panel-header>
+            <mat-chip-list #chipList>
+              <mat-chip  *ngFor="let competence of grpcompetence.competences">
+                {{competence.libelle}}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+
+<!--
+        <mat-card class="example-card" *ngFor="let grpcompetence of dataSource">
+            <mat-card-header class="mat-card-header">
+              <mat-card-title class="mat-card-title">{{grpcompetence.libelle}}
+                    
+              </mat-card-title>
+                  <i class="fa fa-pencil" id="update-icone"></i>
+                   <i class="fa fa-times" id="close-card"></i>
+            </mat-card-header>
+              <mat-card-content>
+                  <mat-label class="mat-label">Description</mat-label>
+              <p>
+                {{grpcompetence.description}}
+              </p>
+            </mat-card-content>
+            <mat-card class="competence-item">Competences
+              <i id="show_referentiels_arrow" (click)="show_or_hide_competences()" class={{competencesButton}}></i>
+              <div class="competences-card" *ngIf="competenceOpen">
+                <button  id="competences_button" *ngFor="let competence of grpcompetence.competences" [ngClass]="{'btn btn-success':competence.clicked,
+                 'btn btn-danger':!competence.clicked}" (click)="click_referentiel(competence)"> {{competence.libelle}}
+              </button>
+            </div>
+            </mat-card>
+
+          </mat-card>
+   --> 
+      </mat-card>

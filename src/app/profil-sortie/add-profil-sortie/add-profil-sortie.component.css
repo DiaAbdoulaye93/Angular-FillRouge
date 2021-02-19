@@ -1,0 +1,42 @@
+
+  .auth-bar,.submit-button{
+    background-color:#008e8e
+  
+  }
+  .main-card{
+    
+    background-color:#E3E3E3;
+     width: 100%;
+   
+  }
+ 
+  .text-card{
+
+    width:80%;
+    margin-left:5%;
+   
+  }
+  .btn{
+      width:auto;
+      margin-left: 50%;
+      background-color: #008e8e;
+      font-weight: bolder;
+      display: inline-block;
+      text-decoration-color: white;
+  }
+  ::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #008e8e !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #008e8e !important;;
+  }
+ 
+ 

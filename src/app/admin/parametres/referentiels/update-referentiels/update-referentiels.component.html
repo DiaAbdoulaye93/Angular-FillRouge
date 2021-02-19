@@ -1,0 +1,122 @@
+
+    <div class="pt-5">
+        <mat-card fxFlex="25" class="main-card">
+          <mat-toolbar class="auth-bar">Modification d'un referentiel</mat-toolbar>
+          <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="referentielForm" (ngSubmit)='UpdateReferentiel()'>
+              <mat-form-field class="text-card">
+                  <mat-label>Libelle</mat-label>
+                    <input matInput [(value)]= 'referentielData.libelle' formControlName='libelle'>
+                </mat-form-field>
+                <mat-form-field class="text-card">
+                  <mat-label>Presentation</mat-label>
+                  <input matInput [(value)]= 'referentielData.Presentation' formControlName='presentation'>
+                </mat-form-field>
+                <mat-form-field class="file-choose">
+                    <mat-label>Programme</mat-label>
+                      <ngx-mat-file-input placeholder="upload programme" formControlName='programme' (change)="fileChange($event)"></ngx-mat-file-input>
+                      <mat-icon matSuffix>folder</mat-icon>
+                    </mat-form-field>    
+                  <mat-accordion class="example-card">
+                    <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header class="auth-bar">
+                        Choisir les groupes de competences recherchés dans referentiel
+                      </mat-expansion-panel-header>
+                      <mat-chip-list #chipList formArrayName="competences">  
+                        <div  class="older_competences"> 
+                         <span style="margin-left: 10%;">Groupe de competence deja associés a ce referentiel</span> <hr>
+                             <mat-chip *ngFor="let competence of newCompetenceArray"
+                             [removable]="removable"
+                             (removed)="CallFunction.remove(competence, newCompetenceArray)" 
+                              >
+                               {{competence}}
+                               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                             </mat-chip>
+                         </div>
+                         <div  class="neWer_competences">
+                             <span style="margin-left: 10%;">Ajouter un nouveau groupe de competence a ce referentiel</span> <hr>
+                             <mat-chip *ngFor="let fruit of FreeCompetencesArray"
+                             [selectable]="selectable"
+                             (click)="CallFunction.click(fruit, newCompetenceArray, clicked)"
+                             [removable]="removable"
+                             (removed)="CallFunction.remove(fruit, FreeCompetencesArray)" 
+                             [ngClass]="{'selectedChip': clicked}">
+                               {{fruit}}
+                               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                             </mat-chip>
+                         </div>
+                         </mat-chip-list>
+                    </mat-expansion-panel>
+                  </mat-accordion>  <br>
+   
+                  <mat-accordion class="example-card">
+                    <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header class="auth-bar">
+                        Criteres d'admission
+                      </mat-expansion-panel-header>
+
+                      <mat-chip-list #chipList formArrayName="admission">  
+                        <div  class="older_competences"> 
+                         <span style="margin-left: 10%;">Les criteres d'admission associés a ce referentiel </span> <hr>
+                             <mat-chip *ngFor="let competence of newAdmissionArray"
+                             [removable]="removable"
+                             (removed)="CallFunction.remove(competence, newAdmissionArray)" 
+                             >
+                               {{competence}}
+                               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                             </mat-chip>
+                         </div>
+                         <div  class="neWer_competences">
+                             <span style="margin-left: 10%;">Cliquer pour ajouter un nouvelle critere d'admission a ce referentiel</span> <hr>
+                             <mat-chip *ngFor="let fruit of FreeAdmissionArray"
+                             [selectable]="selectable"
+                             (click)="CallFunction.click(fruit, newAdmissionArray, clicked)"
+                             [removable]="removable"
+                             (removed)="CallFunction.remove(fruit,FreeEvaluationArray)" 
+                             [ngClass]="{'selectedChip': clicked}">
+                               {{fruit}}
+                               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                             </mat-chip>
+                         
+                         </div>
+                         </mat-chip-list>     
+                        </mat-expansion-panel>
+                  </mat-accordion>  <br>
+  
+                 <mat-accordion class="example-card">
+                    <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header class="auth-bar">
+                        Criteres d'evaluation
+                      </mat-expansion-panel-header>
+                      <mat-chip-list #chipList formArrayName="evaluation">  
+                        <div  class="older_competences"> 
+                         <span style="margin-left: 10%;">Les criteres d'evlauation associés a ce referentiel</span> <hr>
+                             <mat-chip *ngFor="let competence of newEvaluationArray"
+                             [removable]="removable"
+                             (removed)="CallFunction.remove(competence,newEvaluationArray)" 
+                              >
+                               {{competence}}
+                               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                             </mat-chip>
+                         </div>
+                         <div  class="neWer_competences">
+                             <span style="margin-left: 10%;">Cliquer pour ajouter une nouvelle critere d'evaluation a ce referentiel</span> <hr>
+                             <mat-chip *ngFor="let fruit of FreeEvaluationArray"
+                             [selectable]="selectable"
+                             (click)="CallFunction.click(fruit,newEvaluationArray,clicked)"
+                             [removable]="removable"
+                             (removed)="CallFunction.remove(fruit,FreeEvaluationArray)" 
+                             [ngClass]="{'selectedChip': clicked}">
+                               {{fruit}}
+                               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                             </mat-chip>
+                         </div>
+                         </mat-chip-list>
+                    </mat-expansion-panel>
+                  </mat-accordion>  <br><br>
+                  <button mat-raised-button type="submit" class="submit-btn">Modifier</button>
+
+          </form>
+        </mat-card>
+      </div>
+    
+      

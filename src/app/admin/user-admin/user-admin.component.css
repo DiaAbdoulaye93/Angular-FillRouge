@@ -1,0 +1,10 @@
+.dynamiqueDiv{
+   border-left:3px solid #008e8e
+}
+.lien{
+    background-color: #008e8e;
+}
+a, a:hover
+{   text-decoration: none;
+    color: white;
+}

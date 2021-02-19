@@ -1,0 +1,30 @@
+
+<div class="detailles-card">
+    <mat-toolbar class="auth-bar">Detailles de la promo</mat-toolbar>
+    <mat-card fxFlex="25" class="main-card">
+       
+            <mat-card-title>{{OnePromo.titre}}</mat-card-title>
+            <mat-card-subtitle>{{OnePromo.description}}</mat-card-subtitle>    
+       
+        <mat-card class="right">
+            <mat-icon>calendar_today</mat-icon> <span> Du  {{OnePromo.datedebut}} au {{OnePromo.datefin}} </span>  <br><br>
+            <mat-icon>location_on</mat-icon>    <span>  {{OnePromo.lieu}}  </span><br><br>
+            <mat-icon>perm_identity</mat-icon>  <span> {{nbrApprenants + ' apprenants'}}</span>
+        </mat-card>
+      
+    </mat-card>
+    <hr>
+    <mat-card fxFlex="25" class="main-card">
+        <mat-toolbar class="auth-bar" style="width:auto; background-color:white">Les Apprennants de la promo</mat-toolbar>
+        <mat-card class="liste_apprenants">
+            <span style="margin-left: 20%; font-weight: bold;">Liste des apprenants</span><br>
+            <span style="margin-left: 20%; color: yellowgreen;">{{nbrApprenants + ' apprenants'}}</span>
+            <div *ngFor="let apprenant of apprenants" class="oneApprennant">
+                <a   [routerLink]="['/admin/parametres/promos',apprenant.id,'detailles/',apprenant.id]">
+                    <span style="font-weight: bold;">{{apprenant.prenom + ' ' + apprenant.nom }} </span> <br>
+                    <span>{{ apprenant.email}}</span>
+                </a>
+                </div>
+        </mat-card>
+    </mat-card>
+</div>

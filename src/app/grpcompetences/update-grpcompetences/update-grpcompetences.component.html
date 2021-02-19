@@ -1,0 +1,58 @@
+
+    <div class="pt-5">
+        <mat-card fxFlex="25" class="main-card">
+          <mat-toolbar class="auth-bar">Modifier une groupe de Compentences</mat-toolbar>
+          <form fxLayoutAlign="stretch" fxLayout="column" class="login-form"  [formGroup]="grpcompetencesForm" (ngSubmit)="UpdategrpCompetences()" >
+              <mat-form-field class="text-card">
+                  <mat-label>Libelle</mat-label>
+                  <input matInput placeholder="Développer le back-end" formControlName='libelle' value={{grCompetence.libelle}}>
+                </mat-form-field>
+                <mat-form-field class="text-card">
+                  <mat-label>Descriptif</mat-label>
+                  <input matInput placeholder="Donner le descriptif" formControlName='description' value={{grCompetence.description}}>
+              
+                </mat-form-field>
+                     <mat-accordion class="example-card">
+                      <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header class="auth-bar">Choisir les compentences à associer à ce groupe
+                        </mat-expansion-panel-header>
+                        <mat-chip-list #chipList formArrayName="competences">  
+                       <div  class="older_competences"> 
+                        <span style="margin-left: 10%;">Competences deja associés a ce groupe</span> <hr>
+                            <mat-chip *ngFor="let competence of newcompetenceArray"
+                            [removable]="removable"
+                            (removed)="remove(competence)" 
+                            [ngClass]="{'selectedChip': clicked}">
+                              {{competence}}
+                              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                        </div>
+                        <div  class="neWer_competences">
+                            <span style="margin-left: 10%;">Ajouter une nouvelle competence a ce groupe</span> <hr>
+                            <mat-chip *ngFor="let fruit of FreeCompetences"
+                            [selectable]="selectable"
+                            (click)="click(fruit)"
+                            [removable]="removable"
+                            (removed)="remove_neWerCOmpetence(fruit)" 
+                            [ngClass]="{'selectedChip': clicked}">
+                              {{fruit}}
+                              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                          <input
+                          placeholder="Ajouter une nouvelle competence"
+                          #fruitInput
+                          [formControl]="fruitCtrl"
+                          [matChipInputFor]="chipList"
+                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                          (matChipInputTokenEnd)="add($event)"
+                          style="border-bottom: 3px solid black; width:30px;">
+                        </div>
+                        </mat-chip-list>
+                      </mat-expansion-panel>
+                    </mat-accordion>  <br><br>
+         <button mat-raised-button type="submit" class="btn">Soumettre</button>
+          </form>
+        </mat-card>
+     
+      </div>
+      

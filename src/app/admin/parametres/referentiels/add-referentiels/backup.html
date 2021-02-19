@@ -1,0 +1,134 @@
+      
+             <mat-card class="competences-card">
+                <mat-toolbar class="auth-bar">Choisir les groupes de competences recherchés dans referentiel</mat-toolbar>
+                 
+                    <mat-chip-list #chipList formArrayName="referentielGrpCompetences">
+                      <mat-chip  id= "competences_button" *ngFor="let competence of dataSourceGrpCompetences" 
+                      [ngClass]="{'btn btn-success':competence.clicked,'btn btn-danger':!competence.clicked}" (click)="click_competence(competence)">
+                        {{competence.libelle}}
+                      </mat-chip>
+                    </mat-chip-list>
+             </mat-card ><br>
+             <mat-form-field class="file-choose">
+                <mat-label>Programme</mat-label>
+                  <ngx-mat-file-input placeholder="upload programme" formControlName='programme' ></ngx-mat-file-input>
+                  <mat-icon matSuffix>folder</mat-icon>
+                </mat-form-field>
+                <mat-card class="competences-card">
+                    <mat-toolbar class="auth-bar">Criteres d'admission</mat-toolbar>
+                    <mat-chip-list #chipList formArrayName="critereadmission">
+                      <mat-chip  id= "competences_button" *ngFor="let admission of dataSourceAdmission" 
+                      [ngClass]="{'btn btn-success':admission.clicked,'btn btn-danger':!admission.clicked}" (click)="click_admission(admission)">
+                        {{admission.libelle}}
+                      </mat-chip>
+                    </mat-chip-list>
+                 </mat-card ><br>
+                 <mat-card class="competences-card">
+                    <mat-toolbar class="auth-bar">Criteres d'evaluation</mat-toolbar>
+                    <mat-chip-list #chipList formArrayName="criterevaluation">
+                      <mat-chip  id= "competences_button" *ngFor="let evaluation of dataSourceEvaluation" 
+                      [ngClass]="{'btn btn-success':evaluation.clicked,'btn btn-danger':!evaluation.clicked}" (click)="click_evaluation(evaluation)">
+                        {{evaluation.libelle}}
+                      </mat-chip>
+                    </mat-chip-list>
+                 </mat-card ><br>
+
+
+                 get grpCompetencesArray(): any {
+                    return this.referentielForm.get('referentielGrpCompetences') as FormArray;
+                  }
+                  get criteres_EvaluationArray(): any {
+                    return this.referentielForm.get('criterevaluation') as FormArray;
+                  }
+                  get criteres_AdmissionArray(): any {
+                    return this.referentielForm.get('critereadmission') as FormArray;
+                  }
+                    click_competence(competence: any): any{
+                      competence.clicked = !competence.clicked;
+                      if (competence.clicked === true)
+                      {
+                         this.grpCompetencesArray.push(
+                         this.fb.group({
+                          libelle: competence.libelle
+                         })
+                       );
+                      }
+                      else{
+                         this.grpCompetencesArray.removeAt(
+                         this.fb.group({
+                          libelle: competence.libelle
+                         })
+                       );
+                      }
+                      console.log(this.grpCompetencesArray);
+                    }
+                    click_evaluation(evaluation: any): any{
+                      evaluation.clicked = !evaluation.clicked;
+                      if (evaluation.clicked === true)
+                      {
+                         this.criteres_EvaluationArray.push(
+                         this.fb.group({
+                          libelle: evaluation.libelle
+                         })
+                       );
+                      }
+                      else{
+                         this.criteres_EvaluationArray .removeAt(
+                         this.fb.group({
+                          libelle: evaluation.libelle
+                         })
+                       );
+                      }
+                      console.log(this.criteres_EvaluationArray);
+                    }
+                    click_admission(admission: any): any{
+                      admission.clicked = !admission.clicked;
+                      if (admission.clicked === true)
+                      {
+                         this.criteres_AdmissionArray.push(
+                         this.fb.group({
+                            libelle: admission.libelle
+                         })
+                       );
+                      }
+                      else{
+                         this.criteres_AdmissionArray.removeAt(
+                         this.fb.group({
+                             libelle: admission.libelle
+                         })
+                       );
+                      }
+                      console.log(this.criteres_AdmissionArray);
+                    }
+
+                    
+
+
+                    this.grpCompetencesData.getgrpsCompetences().subscribe(
+                        (data: any) => {
+                        this.dataSourceGrpCompetences = data['hydra:member'] as ProfilSortie[];
+                         },
+                     );
+                      this.evaluationData.getCrit_evaluation().subscribe(
+                      (data: any) => {
+                             this.dataSourceEvaluation = data['hydra:member'] as ProfilSortie[];
+                         },
+                      );
+                      this.admissionDatas.getCrit_admission().subscribe(
+                        (data: any) => {
+                                this.dataSourceAdmission = data['hydra:member'] as ProfilSortie[];
+                         },
+                      );
+
+                      <div class="last_div">
+                        <div class="center">
+                          <mat-label class="image-label">Fichier acceprés JPEG ou PNG</mat-label><br>
+                          <mat-label class="image-label">Faites glisser une image ou</mat-label><br>
+                          <mat-form-field class="file-choose">
+                            
+                            <mat-label>Importer depuis votre ordinateur</mat-label>
+                              <ngx-mat-file-input placeholder="upload liste des apprennants" formControlName='apprenants' (change)="fileChange($event)"></ngx-mat-file-input>
+                              <mat-icon matSuffix>folder</mat-icon>
+                            </mat-form-field>
+                        </div>
+                      </div> <br>

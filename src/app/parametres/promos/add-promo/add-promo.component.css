@@ -1,0 +1,153 @@
+.main-div{
+
+    height: 100%;
+  }
+  .auth-bar,.submit-button,.example-card,.mat-expansion-panel{
+    background-color:#008e8e;
+  }
+  .example-card,.mat-expansion-panel{
+      color: black;
+  }
+  .example-card{
+      width:80%;
+      margin-left: 5%;
+      margin-top: 1.5%;
+      padding-left:1%;
+      height: auto;
+      display:inline-block;
+  }
+  .main-card{
+    
+    background-color:#E3E3E3;
+     width: auto;
+   
+  }
+ 
+  .text-card, .select-card,.last_div{
+    width:80%;
+    margin-left:5%;
+  }
+  .select-card{
+      width:40%
+  }
+  .btn,.referentiels_button{
+      width:30%;
+      margin-left: 55%;
+      background-color: #008e8e;
+      font-weight: bolder;
+  }
+  ::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+   }
+   ::ng-deep .mat-iput {
+    /*change color of label*/
+    color: black !important;
+   }
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #008e8e !important;
+
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #008e8e !important;;
+  }
+ .competences-card{
+    background-color: #008e8e !important;;
+    margin-left:5%;
+    width: 80%;
+    height: auto;
+    padding: 2%;
+ }
+ 
+ #competences_button{
+     margin-left:2%;
+    border-radius:5%;
+    height: auto;
+    width: auto;
+    margin-top: 3%;
+ }
+ .file-choose{
+    color:black;
+    width:85%;
+    margin-left:5%;
+  }
+  .referentiels_button{
+      padding: 0%;
+    margin-left:5%;
+      width:80%
+  }
+  .last_div {
+    height: 200px;
+    position: relative;
+    border: 2px solid green;
+    border-radius: 3%;
+    border-style: dotted;
+  }
+  .image-label,.image-button{
+   color:black;
+   
+  }
+.image-button{
+  background-color: #008e8e !important;;
+  border-radius: 3%;
+  width: 150%;
+  height: 50px;
+  margin-left:-50px;
+  font-weight: bolder;
+  border: 3px solid green;
+}
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .btn-retour,.btn{
+    width: auto;
+  }
+  .btn{
+    margin-left: 50%;
+  }
+ .btn-retour{
+   background-color: white;
+   margin-left: 5%;
+   width: auto; 
+   border: 2px solid red;
+   font-weight: bolder;
+   border-radius: 10%;
+
+ }
+#show_referentiels_arrow {
+  background-color: #008e8e !important;;
+  float: right;
+  height: 20px;
+  border: 0%;
+  color:black
+}
+.date{
+  background-color: #008e8e !important;;
+  margin-left:5%;
+  width: 37.5%;
+}
+.referentiels_button{
+  margin-top: 2%;
+}
+::ng-deep .mat-datepicker-toggle{
+  color:black;
+}
+input,textarea,select{
+  color: black;
+}
+.file-choose{
+  color:black;
+  width:85%;
+  margin-left:5%;
+}
+.selectedChip {
+  background-color: #008e8e;
+}

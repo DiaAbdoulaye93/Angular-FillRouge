@@ -1,0 +1,35 @@
+<div class="row m-5">
+    <div class="col-md-2.5 ">
+<div class="lien alert alert-dismissible  ">
+    <a class="nav-link text-decoration-none " [routerLink]="['/admin/parametres/promos']">
+     <strong>Promo</strong></a>
+   </div>
+  
+   <div class=" lien alert alert-dismissible   ">
+    <a class="nav-link text-decoration-none" [routerLink]="['/admin/parametres/referentiels']">
+     <strong>Référentiels</strong></a>
+   </div>
+   <div class="lien alert alert-dismissible   ">
+    <a   class="nav-link  text-decoration-none" [routerLink]="['/admin/parametres/groupecompetences']">
+     <strong>Groupe de compétences</strong></a>
+   </div>
+  
+   <div class="lien alert alert-dismissible   ">
+    <a   class="nav-link  text-decoration-none" [routerLink]="['/admin/parametres/competences']"> 
+     <strong>Compétences</strong></a>
+   </div>
+   
+   <div class="lien alert alert-dismissible   ">
+    <a   class="lien nav-link  text-decoration-none" [routerLink]="['/admin/parametres']"> 
+     <strong>Groupe de tags</strong></a>
+   </div>
+  
+   <div class="lien alert alert-dismissible  ">
+    <a   class="nav-link  text-decoration-none" [routerLink]="['/admin/parametres/profil-sortie']"> 
+     <strong>Profil de sortie</strong></a>
+   </div>
+</div>
+<div class="dynamiqueDiv ml-5 col-md-9">
+    <router-outlet></router-outlet>
+</div>
+</div>

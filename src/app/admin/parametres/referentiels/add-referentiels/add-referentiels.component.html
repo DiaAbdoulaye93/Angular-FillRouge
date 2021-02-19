@@ -1,0 +1,67 @@
+
+    <div class="pt-5">
+      <mat-card fxFlex="25" class="main-card">
+        <mat-toolbar class="auth-bar">Creation de referentiels</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="referentielForm" (ngSubmit)="AddReferentiel()"  >
+            <mat-form-field class="text-card">
+                <mat-label>Libelle</mat-label>
+                <input matInput placeholder="Développer le back-end" formControlName='libelle'>
+              </mat-form-field>
+              <mat-form-field class="text-card">
+                <mat-label>Presentation</mat-label>
+                <textarea matInput placeholder="Donner le descriptif" rows="3" formControlName='presentation'></textarea>
+              </mat-form-field>
+              <mat-form-field class="file-choose">
+                <mat-label>Programme</mat-label>
+                  <ngx-mat-file-input placeholder="upload programme" formControlName='programme' (change)="fileChange($event)"></ngx-mat-file-input>
+                  <mat-icon matSuffix>folder</mat-icon>
+                </mat-form-field>
+
+                <mat-accordion class="example-card">
+                  <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header class="auth-bar">
+                      Choisir les groupes de competences recherchés dans referentiel
+                    </mat-expansion-panel-header>
+                    <mat-chip-list #chipList formArrayName="referentielGrpCompetences">
+                      <mat-chip *ngFor="let competence of dataSourceGrpCompetences"   [ngClass]="{'selectedChip': competence.clicked}"
+                       (click)="click_competence(competence)">
+                        {{competence.libelle}}
+                      </mat-chip>
+                    </mat-chip-list>
+                  </mat-expansion-panel>
+                </mat-accordion>  <br>
+ 
+                <mat-accordion class="example-card">
+                  <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header class="auth-bar">
+                      Criteres d'admission
+                    </mat-expansion-panel-header>
+                    <mat-chip-list #chipList formArrayName="critereadmission">
+                      <mat-chip *ngFor="let admission of dataSourceAdmission"   [ngClass]="{'selectedChip': admission.clicked}"
+                       (click)="click_admission(admission)">
+                        {{admission.libelle}}
+                      </mat-chip>
+                    </mat-chip-list>
+                  </mat-expansion-panel>
+                </mat-accordion>  <br>
+
+               <mat-accordion class="example-card">
+                  <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header class="auth-bar">
+                      Criteres d'evaluation
+                    </mat-expansion-panel-header>
+                    <mat-chip-list #chipList formArrayName="criterevaluation">
+                      <mat-chip   *ngFor="let evaluation of dataSourceEvaluation" 
+                      [ngClass]="{'selectedChip':evaluation.clicked}" (click)="click_evaluation(evaluation)">
+                        {{evaluation.libelle}}
+                      </mat-chip>
+                    </mat-chip-list>
+                  </mat-expansion-panel>
+                </mat-accordion>  <br><br>
+
+                  <button mat-raised-button type="submit" class="submit-button">Soumettre</button>
+        </form>
+      </mat-card>
+    </div>
+  
+    

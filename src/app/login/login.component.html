@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="p-5">
+    <mat-card fxFlex="25" class="main-card">
+      <mat-toolbar class="auth-bar">Login-Check</mat-toolbar>
+      <form fxLayoutAlign="stretch" fxLayout="column" class="login-form"  (ngSubmit)="loginProcess()" >
+        <mat-form-field class="text-card">
+          <input matInput placeholder="Username" name="username"   [(ngModel)]="formGroup.username" class="text-input">
+       </mat-form-field>
+       <mat-form-field class="text-card">
+        <input matInput type="password" placeholder="mot de pass" name="password"  [(ngModel)]="formGroup.password" class="text-input">
+     </mat-form-field><br>
+     <button mat-raised-button type="submit" class="btn">Connection</button>
+      </form>
+    </mat-card>
+  </div>
+  </div>
+  

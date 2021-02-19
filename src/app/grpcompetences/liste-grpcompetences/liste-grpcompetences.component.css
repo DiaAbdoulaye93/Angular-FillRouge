@@ -1,0 +1,85 @@
+.main-card,.example-card{
+    
+    background-color:#E3E3E3;
+    
+     width: auto;
+   
+  }
+  .auth-bar,.submit-button,.example-card,.mat-expansion-panel{
+    background-color:#008e8e;
+   
+  
+  }
+  .example-card,.mat-expansion-panel{
+      color: black;
+  }
+  .example-card{
+      width:30%;
+      margin: 1.5%;
+      padding-left:1%;
+      height: auto;
+      display:inline-block;
+  }
+  .mat-card-header{
+      border-bottom: 2px solid #E3E3E3;
+      color: black;
+  }
+  .mat-label{
+      font-weight: bolder;
+      color: black;
+  }
+  #update-icone{
+      margin-left: 45%;
+      color: black;
+  }
+  #close-card{
+      margin-left: 4%;
+      color: black;
+  }
+  #close-card,#update-icone{
+      margin-top: 3%;
+      color: black;
+  }
+   .competences-card{
+    background-color: #008e8e !important;;
+    margin-left:5%;
+    width: 100%;
+    height: auto;
+    padding: 2%;
+    color: black;
+ }
+ .competence-item,.tag-item{
+     width: 100%;
+     background-color: #008e8e;
+     border-bottom: 2px solid #E3E3E3;
+     color: black;
+ }
+ #competences_button{
+     padding-left: 0px;
+     width: 48%;
+     margin: 1%;
+     margin-left: 0.5%;
+     height: auto;
+     white-space: normal;
+     font-size:70%;
+     color: black;
+ }
+ #show_referentiels_arrow {
+    background-color: #008e8e !important;;
+    float: right;
+    height: 20px;
+    border: 0%;
+    color:black
+  }
+  input,textarea,select{
+    color: black;
+  }
+  
+  .mat-expansion-panel{
+      font-weight: bold;
+  }
+  a, a:hover{
+    text-decoration: none;
+    color:white;
+  }
+  

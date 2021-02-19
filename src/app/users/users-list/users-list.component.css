@@ -1,0 +1,48 @@
+.main-div,.main-card{
+  background-color: #E3E3E3;
+ 
+}
+table {
+    width: 100%;
+
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .example-button-row {
+      float: right;
+   
+  }
+
+  a {
+    text-decoration: none;
+    color:black
+  }
+  th,.tabfooter{
+      background-color: #008e8e;
+      color:black
+ 
+  }
+  td{
+      background-color: #E3E3E3;
+      color: black;
+      border-bottom: 1px solid #008e8e;
+  }
+  .tabfooter{
+    color: black;
+  }
+  .auth-bar{
+    background-color: #008e8e;
+  }
+  button{
+    background-color: #E3E3E3;
+    
+  }
+  img{
+    width: 100%;
+    float: left;
+    border-radius:5%
+  }

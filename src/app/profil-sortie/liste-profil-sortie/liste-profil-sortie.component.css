@@ -1,0 +1,54 @@
+.main-card,.example-card{
+    
+    background-color:#E3E3E3;
+    
+     width: auto;
+   
+  }
+  .auth-bar{
+    width: 100%;
+    padding-left: 15%;
+    background-color:#008e8e;
+   
+  
+  }
+  .second-div{
+      margin: 5%;
+      border: 2px solid #008e8e;
+  }
+.text-card{
+    width:35%;
+    margin: 1.5%;
+    padding: 0%;
+    color: black;
+}
+
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.example-button-row {
+    float: right;
+ 
+}
+
+a {
+  text-decoration: none;
+  color:black
+}
+th,.tabfooter,table{
+    background-color: #008e8e;
+    color:black;
+    width: 100%;
+
+}
+th{
+  width: auto;
+}
+td{
+    background-color: #E3E3E3;
+    color: black;
+    border-bottom: 1px solid #008e8e;
+}

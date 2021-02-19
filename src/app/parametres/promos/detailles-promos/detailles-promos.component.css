@@ -1,0 +1,38 @@
+
+  .main-card,.detailles-card,.auth-bar{
+      margin-top: 1.5%;
+      width: auto;
+      background-color:#008e8e;
+  }
+  .auth-bar{
+    background-color:#008e8e;
+  }
+   .right{
+     width:50%;
+     height: auto;
+     margin-left: 50%;
+     margin-top: -5%;
+   /* float: right; */
+   background-color:#008e8e;
+  }
+  .liste_apprenants{
+      width:25%;
+      height:10%;
+      background-color:#008e8e;
+  }
+  a, a:hover{
+    text-decoration: none;
+    color:white;
+}
+
+.oneApprennant{
+    text-decoration: none;
+    background-color: #008e8e;
+    border-bottom:1px solid white
+}
+
+.oneApprennant:hover{
+  
+    background-color: white;
+
+}

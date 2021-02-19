@@ -1,0 +1,38 @@
+.main-card{
+    background-color: #E3E3E3;
+    width:100%;
+    border: 2px solid #008e8e;
+  }
+  .auth-bar{
+    white-space: normal;
+    padding-left: 1%;
+    background-color:#008e8e;
+  }
+  .text-card{
+    width:50%;
+    display: inline-block;
+    border-collapse: collapse;
+    background-color: #E3E3E3;
+    border: 2px solid #008e8e;
+    vertical-align: top;
+    height: 150px;
+    color:black
+  }
+  ::ng-deep.mat-form-field-underline,.niveau_btn,.niveau_btn1{
+    /*change color of underline*/
+    background-color: #008e8e !important;
+    font-weight: bolder;
+  } 
+  #niveau_btn1,#niveau_btn{
+    width: 20%;
+    height: 50px;
+  }
+  .niveau_btn1{
+    margin-left: 10%;
+  }
+  button:active{
+    background: #008e8e;
+  }
+  button:focus{
+    background: #008e8e;
+  }

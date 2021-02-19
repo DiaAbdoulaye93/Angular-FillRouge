@@ -1,0 +1,51 @@
+<mat-card fxFlex="25" class="main-card">
+    <mat-toolbar class="auth-bar">Liste des Referentiels </mat-toolbar>
+ 
+    <mat-accordion class="example-card"  *ngFor="let referentiel of dataSource">
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{referentiel.libelle}}
+          </mat-panel-title>
+          <a   [routerLink]="['/admin/parametres/referentiels',referentiel.id]" class="show" ><mat-icon>visibility</mat-icon></a>
+          <a  [routerLink]="['/admin/parametres/referentiels',referentiel.id,'update']" class="update" ><mat-icon>mode</mat-icon></a>
+          <mat-icon style="color:white" >delete</mat-icon>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+      <mat-panel-description class="description-title">
+        Presentation du Rerentiel
+        </mat-panel-description>
+      <mat-panel-description>
+        <p>{{referentiel.Presentation}}</p>
+      </mat-panel-description>
+      <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          Groupe de competences Associés
+        </mat-expansion-panel-header>
+        <mat-chip-list #chipList>
+          <mat-chip  *ngFor="let competence of referentiel.grpcompetence">
+            {{competence.libelle}}
+          </mat-chip>
+        </mat-chip-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          Criiteres d'Admission
+        </mat-expansion-panel-header>
+        <mat-chip-list #chipList>
+          <mat-chip  *ngFor="let critereadmission of referentiel.critereadmission">
+            {{critereadmission.libelle}}
+          </mat-chip>
+        </mat-chip-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+         Criteres d'evaluation
+        </mat-expansion-panel-header>
+        <mat-chip-list #chipList>
+          <mat-chip  *ngFor="let criterevaluation of referentiel.criterevaluation">
+            {{criterevaluation.libelle}}
+          </mat-chip>
+        </mat-chip-list>
+      </mat-expansion-panel>
+    </mat-accordion>

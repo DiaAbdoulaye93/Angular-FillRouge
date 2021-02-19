@@ -1,0 +1,87 @@
+.main-div{
+    background-color:#E3E3E3;
+    height: 100%;
+  }
+  .auth-bar,.submit-button,.example-card,.mat-expansion-panel{
+    background-color:#008e8e;
+  }
+  .main-card{
+    background-color:#E3E3E3;
+   
+  }
+  
+  .text-card, .competences-card,.example-card,.mat-expansion-panel{
+  
+    width:80%;
+    margin-left:5%;
+   
+  }
+  
+  .competences-card{
+    width: 40%;
+    background-color: #E3E3E3;
+  }
+  
+  ::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline,.niveau_btn,.niveau_btn1{
+    /*change color of underline*/
+    background-color: #008e8e !important;
+    font-weight: bolder;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #008e8e !important;;
+  }
+  
+  input,textarea,select{
+    color: black;
+  }
+  textarea, .text-card{
+    background-color: #E3E3E3;
+  }
+  
+  .niveau_text{
+    width: 49%;
+    background-color: #E3E3E3;
+    display: inline-block;
+    border-collapse: collapse;
+    border: 2px solid #008e8e;
+    height: 250px;
+  }
+  .older_competences, .neWer_competences{
+    display: inline-block;
+    width: 50%;
+  }
+  .older_competences{
+      float: left;
+      
+     
+  }
+  .neWer_competences{
+      float: right;
+      border-left: 3px solid black;
+  }
+  hr{
+      width: 100%;
+  }
+  span{
+      font-weight: bold;
+  }
+  .file-choose{
+    color:black;
+    width:80%;
+    margin-left:5%;
+  }
+  .submit-btn{
+    width:25%;
+    height: 50px;
+    margin-left: 60%;
+    background-color: #008e8e;
+    font-weight: bolder;
+    text-decoration-color: white;
+}

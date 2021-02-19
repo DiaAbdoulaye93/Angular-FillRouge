@@ -1,0 +1,124 @@
+
+    <div class="pt-3">
+
+<mat-accordion class="liste-card">
+  <mat-expansion-panel  (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-toolbar class="auth-bar">Creer une promo</mat-toolbar>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <mat-card fxFlex="25" class="main-card">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="promoForm" (ngSubmit)="AddPromo()">
+            <mat-form-field class="select-card">
+                <mat-label>Choix de la langue</mat-label>
+                <select matNativeControl #t (change)='selectedlangue(t.value)' formControlName="langue">
+                  <option></option>
+                  <option  id="optiongrp"  *ngFor="let order of dataSourceLangue; let i = index" value={{order.libelle}}>
+                    {{order.libelle}}
+                  </option>
+                </select>
+              </mat-form-field>
+            <mat-form-field class="text-card">
+                <mat-label>Titre</mat-label>
+                <input matInput placeholder="Développer le back-end" formControlName='titre'>
+              </mat-form-field>
+              <mat-form-field class="text-card">
+                <mat-label>Description de la promotion</mat-label>
+                <textarea matInput placeholder="Un description rapide simple et concise" rows="3"  formControlName='description'></textarea>
+              </mat-form-field>
+              <mat-form-field class="text-card">
+                <mat-label>Lieu de la promo</mat-label>
+                <textarea matInput placeholder="indiquez dans quel region se trouve votre promo" rows="3" formControlName='lieu'></textarea>
+              </mat-form-field>
+              <mat-form-field class="text-card">
+                <mat-label>Réference Agathe</mat-label>
+                <input matInput placeholder="Code analytique a demander a votre responsable si vous ne l'avez pas " formControlName='referenceAgate'>
+              </mat-form-field>
+              <mat-form-field class="select-card">
+                <mat-label>Choix de la Fabrique</mat-label>
+                <select matNativeControl #t (change)='selectedfabrique(t.value)' formControlName='fabrique'>
+                  <option></option>
+                  <option  id="optiongrp"  *ngFor="let order of dataSourceFabrique; let i = index" value={{order.libelle}}>
+                    {{order.libelle}}
+                  </option>
+                </select>
+              </mat-form-field><br>
+              <mat-form-field  class="date">
+                <mat-label>Date debut</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="datedebut">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              
+              <mat-form-field class="date">
+                <mat-label>Date de fin</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="datefin">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <br>
+              <mat-accordion class="example-card">
+              <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  Choisir les referentiels 
+                </mat-expansion-panel-header>
+                <mat-chip-list #chipList formArrayName="referentiel">
+                <mat-chip   *ngFor="let referentiel of dataSourceReferentiel" 
+                [ngClass]="{'selectedChip':referentiel.clicked}" (click)="click_referentiel(referentiel)">
+                  {{referentiel.libelle}}
+                </mat-chip>
+                </mat-chip-list>
+              </mat-expansion-panel>
+            </mat-accordion>
+           <br><br>
+           <mat-accordion class="example-card">
+            <mat-expansion-panel (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+              <mat-expansion-panel-header class="auth-bar">Ajouter des apprenannts
+              </mat-expansion-panel-header>
+              <mat-form-field class="file-choose">
+                <mat-label>upload liste des Apprennants</mat-label>
+               <br>
+               <ngx-mat-file-input placeholder="upload liste des apprennants" (change)="onFileInput($event)"  formControlName='apprenants'></ngx-mat-file-input>
+               <mat-icon matSuffix>folder</mat-icon>
+             </mat-form-field>       
+             <mat-chip *ngFor="let fruit of strudentsMails"
+             [selectable]="selectable"
+             [removable]="removable"
+             (removed)="remove(fruit)">  
+               {{fruit}}
+               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+             </mat-chip>
+              <mat-chip-list #chipList formArrayName="apprenant">  
+                <input
+                placeholder="Ajouter un mail"
+                #fruitInput
+                [formControl]="fruitCtrl"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)"
+                style="border-bottom: 3px solid black; width:30px;">
+              </mat-chip-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <div class="last_div">
+            <mat-form-field class="file-choose">
+              <mat-label>Choisir l'image de la promo</mat-label>
+                <ngx-mat-file-input placeholder="upload liste des apprennants" formControlName='photo' (change)="fileChange($event)"></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+              </mat-form-field>
+          </div> <br>
+            <button mat-raised-button type="submit" class="btn-retour"> <i class="fa fa-arrow-left"></i> retour
+              
+            </button>
+            <button mat-raised-button type="submit" class="btn">  
+              Creer la promotion et ajouter des apprenants <i class="fa fa-arrow-right"></i>
+             
+            </button>
+        </form>
+      </mat-card>
+    </mat-expansion-panel>
+  </mat-accordion>
+    </div>
+
+    
